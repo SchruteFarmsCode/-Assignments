@@ -1,8 +1,8 @@
 package org.example;
 
-import java.io.IOException;
+//import java.io.IOException
+
 import java.util.Arrays;
-import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,11 +43,11 @@ public class Main {
         System.out.println("5.Orignal text: " + myFiveExample + ", Reversed text: " + result5);
 //        6.
         String text1 = "arbuz";
-        String text2= "burza";
+        String text2 = "burza";
         if (checkAnagram(text1, text2)) {
-            System.out.println("6.Texts: "  + text1 + " and " + text2 + " are Anagrams");
-        }else {
-            System.out.println("6.Texts: "  + text1 + " and " + text2 + " aren't  Anagrams");
+            System.out.println("6.Texts: " + text1 + " and " + text2 + " are Anagrams");
+        } else {
+            System.out.println("6.Texts: " + text1 + " and " + text2 + " aren't  Anagrams");
         }
 
 
@@ -98,7 +98,7 @@ public class Main {
     }
 
     private static boolean checkAnagram(String text1, String text2) {
-        text1 = text1.replaceAll("\\s","").toLowerCase();
+        text1 = text1.replaceAll("\\s", "").toLowerCase();
         text2 = text2.replaceAll("\\s", "").toLowerCase();
         if (text1.length() != text2.length()) {
             return false;
@@ -134,6 +134,7 @@ public class Main {
         return obj;
 
     }
+
     private static int fibonacci(int n) {
         if (n <= 1) {
             return n;
@@ -148,18 +149,18 @@ public class Main {
         return x2;
 
     }
-    }
+}
 
-    class TextTooLongException extends Exception {
-        public TextTooLongException(String text) {
-            super(text);
+class TextTooLongException extends Exception {
+    public TextTooLongException(String text) {
+        super(text);
 
-        }
     }
+}
 
-    class TextTooShortException extends Exception {
-        public TextTooShortException(String text) {
-            super(text);
-        }
+class TextTooShortException extends Exception {
+    public TextTooShortException(String text) {
+        super(text);
     }
+}
 
