@@ -2,33 +2,48 @@ package org.example;
 
 import java.util.Arrays;
     public class Assigments {
-        public static int divideByTwo(int num) {
-            return num / 2;
+        public  double divideByTwo(double num) {
+            if (num == 0) {
+                throw new ArithmeticException("You can't divide the number zero");
+            }
+            return  num / 2;
         }
 
-        public static int divide(int x, int y) {
-            return x / y;
+        public  double divide(double x, double y) {
+            if (y == 0) {
+                throw new ArithmeticException("You can't divide the number zero");
+            }
+            return  x / y;
         }
 
-        public static int checkLenght(String text) {
+        public  int checkLength(String text) {
+            if (text == null) {
+                throw new IllegalArgumentException("text can't be null");
+            }
             return text.length();
         }
 
-        public static void validateLenght(String text) throws TextTooLongException, TextTooShortException {
-            int textLenght = checkLenght(text);
-            if (textLenght > 10) {
+        public  void validateLength(String text) throws TextTooLongException, TextTooShortException {
+            int textLength = checkLength(text);
+            if (textLength > 10) {
                 throw new TextTooLongException("Text is too long");
-            } else if (textLenght < 4) {
+            } else if (textLength < 4) {
                 throw new TextTooShortException("Text is too short");
             }
         }
 
-        public static String reverse(String example) {
-            StringBuilder reversed = new StringBuilder(example);
+        public  String reverse(String text) {
+            if (text == null) {
+                throw new IllegalArgumentException("text can't be null");
+            }
+            StringBuilder reversed = new StringBuilder(text);
             return reversed.reverse().toString();
         }
 
-        public static boolean checkAnagram(String text1, String text2) {
+        public  boolean checkAnagram(String text1, String text2) {
+            if (text1 == null || text2 == null) {
+                throw new IllegalArgumentException("text can't be null");
+            }
             text1 = text1.replaceAll("\\s", "").toLowerCase();
             text2 = text2.replaceAll("\\s", "").toLowerCase();
             if (text1.length() != text2.length()) {
@@ -41,11 +56,14 @@ import java.util.Arrays;
             return Arrays.equals(charArray1, charArray2);
         }
 
-        public static boolean checkPalindrome(String text1, String text2) {
+        public  boolean checkPalindrome(String text1, String text2) {
+            if (text1 == null || text2 == null) {
+                throw new IllegalArgumentException("text can't be null");
+            }
             String combined = text1 + text2;
-            int lenght = combined.length();
-            for (int i = 0; i < lenght / 2; i++) {
-                if (combined.charAt(i) != combined.charAt(lenght - 1 - i)) {
+            int length = combined.length();
+            for (int i = 0; i < length / 2; i++) {
+                if (combined.charAt(i) != combined.charAt(length - 1 - i)) {
                     return false;
                 }
             }
@@ -53,7 +71,10 @@ import java.util.Arrays;
 
         }
 
-        public static int factiorial(int n) {
+        public  int factorial(int n) {
+            if (n < 0) {
+                throw new IllegalArgumentException("The number can't be negative number");
+            }
             int obj = 1;
             for (int i = 1; i <= n; i++) {
                 obj *= i;
@@ -62,8 +83,10 @@ import java.util.Arrays;
 
         }
 
-        public static int fibonacci(int n) {
-            if (n <= 1) {
+        public  int fibonacci(int n) {
+            if (n < 0) {
+                throw new IllegalArgumentException("The number can't be negative number");
+            }else if (n <= 1) {
                 return n;
             }
             int x1 = 0;
